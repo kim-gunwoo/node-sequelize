@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { user_tb } = require("../models");
-const Op = require("../models");
+//const { user_tb } = require("../models");
+const models = require("../models");
+const user_tb = models.user_tb;
+const Op = models.sequelize.Op;
 
 // 특정사용자로 정보조회 ex) 특정 사용자 상세 정보
 router.get("/:loginid", async (req, res, next) => {
