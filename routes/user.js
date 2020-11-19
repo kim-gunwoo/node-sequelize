@@ -3,7 +3,7 @@ const router = express.Router();
 //const { user_tb } = require("../models");
 const models = require("../models");
 const user_tb = models.user_tb;
-const Op = models.sequelize.Op;
+const Op = models.Sequelize.Op;
 
 // 특정사용자로 정보조회 ex) 특정 사용자 상세 정보
 router.get("/:loginid", async (req, res, next) => {
@@ -39,10 +39,15 @@ router.post("/", async (req, res, next) => {
 
   try {
     const user = await user_tb.findOne({
-      //where: { [Op.or]: [{ loginid: loginid }, { email: email }] },
-      where: { loginid: loginid },
+      /*where: {
+        _id: {
+          [Op.or]: [12, 13],
+        },
+      },*/
+      where: { [Op.or]: [{ loginid: loginid }, { email: email }] },
+      //where: { loginid: loginid },
     });
-
+    throw Error("user exist");
     if (user) {
       throw Error("user exist");
     }
