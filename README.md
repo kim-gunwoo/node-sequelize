@@ -4,6 +4,7 @@
 # dependencies
 npm i sequelize // 시퀄라이즈 설치
 npm i mysql2 // mysql2 설치
+npm i maraidb //마리아디비
 
 # sequelize-cli 전역설치
 npm i -g sequelize-cli // sequelize-cli를 전역으로 설치
