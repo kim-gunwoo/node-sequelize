@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/user", require("./routes/user"));
+app.use("/truser", require("./routes/truser"));
 
 app.use((req, res, next) => {
   res.status(404).json("not found");
