@@ -88,7 +88,7 @@ router.patch("/", async (req, res, next) => {
 
     const success = await user_tb.update(
       { usernm: usernm },
-      { where: { _id: user._id } }
+      { where: { userid: user.userid } }
     );
 
     res.json(success);
@@ -112,7 +112,7 @@ router.delete("/", async (req, res, next) => {
       throw Error("user no exist");
     }
 
-    const success = await user_tb.destroy({ where: { _id: user._id } });
+    const success = await user_tb.destroy({ where: { userid: user.userid } });
 
     res.json(success);
   } catch (err) {

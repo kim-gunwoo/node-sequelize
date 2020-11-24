@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "user_tb",
     {
       // 테이블 컬럼
-      _id: {
+      userid: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
